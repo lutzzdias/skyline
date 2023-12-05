@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49AE09742B16FBF100175E7A /* building.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49AE096C2B16FBF100175E7A /* building.cpp */; };
-		49AE09752B16FBF100175E7A /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49AE096D2B16FBF100175E7A /* ofApp.cpp */; };
-		49AE09762B16FBF100175E7A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49AE096F2B16FBF100175E7A /* main.cpp */; };
+		49B5C21A2B1F9DC3005117D1 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C2132B1F9DC3005117D1 /* ofApp.cpp */; };
+		49B5C21B2B1F9DC3005117D1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C2152B1F9DC3005117D1 /* main.cpp */; };
+		49B5C21C2B1F9DC3005117D1 /* building.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49B5C2182B1F9DC3005117D1 /* building.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,15 +35,15 @@
 
 /* Begin PBXFileReference section */
 		191CD6FA2847E21E0085CBB6 /* of.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = of.entitlements; sourceTree = "<group>"; };
-		191EF70929D778A400F35F26 /* openFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openFrameworks; path = ../../../libs/openFrameworks; sourceTree = SOURCE_ROOT; };
-		49AE096C2B16FBF100175E7A /* building.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = building.cpp; sourceTree = "<group>"; };
-		49AE096D2B16FBF100175E7A /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
-		49AE096E2B16FBF100175E7A /* cg_cam_extras_solution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_cam_extras_solution.h; sourceTree = "<group>"; };
-		49AE096F2B16FBF100175E7A /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		49AE09702B16FBF100175E7A /* cg_drawing_extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_drawing_extras.h; sourceTree = "<group>"; };
-		49AE09712B16FBF100175E7A /* building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = building.h; sourceTree = "<group>"; };
-		49AE09722B16FBF100175E7A /* cg_extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_extras.h; sourceTree = "<group>"; };
-		49AE09732B16FBF100175E7A /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofApp.h; sourceTree = "<group>"; };
+		191EF70929D778A400F35F26 /* openFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openFrameworks; path = /Users/lutz/Applications/of_v0.12.0_osx_release/libs/openFrameworks; sourceTree = SOURCE_ROOT; };
+		49B5C2122B1F9DC3005117D1 /* building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = building.h; sourceTree = "<group>"; };
+		49B5C2132B1F9DC3005117D1 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
+		49B5C2142B1F9DC3005117D1 /* cg_extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_extras.h; sourceTree = "<group>"; };
+		49B5C2152B1F9DC3005117D1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		49B5C2162B1F9DC3005117D1 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofApp.h; sourceTree = "<group>"; };
+		49B5C2172B1F9DC3005117D1 /* cg_drawing_extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_drawing_extras.h; sourceTree = "<group>"; };
+		49B5C2182B1F9DC3005117D1 /* building.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = building.cpp; sourceTree = "<group>"; };
+		49B5C2192B1F9DC3005117D1 /* cg_cam_extras_solution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cg_cam_extras_solution.h; sourceTree = "<group>"; };
 		E4B69B5B0A3A1756003C02F2 /* skylineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = skylineDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			children = (
 			);
 			name = addons;
-			path = ../../../addons;
+			path = /Users/lutz/Applications/of_v0.12.0_osx_release/addons;
 			sourceTree = "<group>";
 		};
 		E4B69B4A0A3A1720003C02F2 = {
@@ -84,14 +84,14 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				49AE096C2B16FBF100175E7A /* building.cpp */,
-				49AE09712B16FBF100175E7A /* building.h */,
-				49AE096E2B16FBF100175E7A /* cg_cam_extras_solution.h */,
-				49AE09702B16FBF100175E7A /* cg_drawing_extras.h */,
-				49AE09722B16FBF100175E7A /* cg_extras.h */,
-				49AE096F2B16FBF100175E7A /* main.cpp */,
-				49AE096D2B16FBF100175E7A /* ofApp.cpp */,
-				49AE09732B16FBF100175E7A /* ofApp.h */,
+				49B5C2182B1F9DC3005117D1 /* building.cpp */,
+				49B5C2122B1F9DC3005117D1 /* building.h */,
+				49B5C2192B1F9DC3005117D1 /* cg_cam_extras_solution.h */,
+				49B5C2172B1F9DC3005117D1 /* cg_drawing_extras.h */,
+				49B5C2142B1F9DC3005117D1 /* cg_extras.h */,
+				49B5C2152B1F9DC3005117D1 /* main.cpp */,
+				49B5C2132B1F9DC3005117D1 /* ofApp.cpp */,
+				49B5C2162B1F9DC3005117D1 /* ofApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -187,9 +187,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49AE09752B16FBF100175E7A /* ofApp.cpp in Sources */,
-				49AE09742B16FBF100175E7A /* building.cpp in Sources */,
-				49AE09762B16FBF100175E7A /* main.cpp in Sources */,
+				49B5C21B2B1F9DC3005117D1 /* main.cpp in Sources */,
+				49B5C21C2B1F9DC3005117D1 /* building.cpp in Sources */,
+				49B5C21A2B1F9DC3005117D1 /* ofApp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
