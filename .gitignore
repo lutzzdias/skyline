@@ -1,1 +1,57 @@
+# Xcode
 .DS_Store
+xcuserdata/
+*.xcworkspace/
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/
+
+# Build products
+build/
+*.build/
+DerivedData/
+
+# Dependencies
+lib/
+bin/
+
+# Logs and data
+*.log
+*.sqlite
+*.xcuserstate
+
+# User-specific files
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+
+# OS X
+.DS_Store
+AppIcon.icns
+
+# Compiled source
+*.pch
+*.gch
+*.o
+
+# Generated files
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+
+# Visual Studio Code
+.vscode/
+
+# Xcode
+.DS_Store
+UserInterfaceState.xcuserstate
+*/xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+
+# openFrameworks specific
+obj/
+bin/data/
+openFrameworks-Info.plist
