@@ -4,17 +4,23 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	glEnable(GL_DEPTH_TEST);
+    // Light
+    glEnable(GL_LIGHTING);
+    glEnable(GL_NORMALIZE);
+    // Material
+    glEnable(GL_COLOR_MATERIAL);
     
     is_perspective = true;
     show_axis = true;
     
+    // Camera
     camera_radius = gh() * 1.25;
     camera_height = gh() * 0.75;
     camera_angle = 0;
-    
     running_camera = -gw() * 0.5;
     is_going_backwards = false;
     
+    // Building
     ofVec2f cuboid_position = ofVec2f(-width_step, height_step);
     ofVec3f cuboid_size = ofVec3f(width_step, height_step, 2 * width_step);
     cuboid = SimpleCuboidBuilding(cuboid_position, cuboid_size);
@@ -35,6 +41,33 @@ void ofApp::setup(){
     ofVec2f custom_position = ofVec2f(-2 * width_step, -height_step);
     ofVec3f custom_size = ofVec3f(width_step, height_step, 5 * width_step);
     custom = CustomBuilding(custom_position, custom_size);
+    
+    // Light
+    GLfloat pos[4];
+    pos[0] = 0; // x
+    pos[1] = gh() * 0.5; // y
+    pos[2] = gh() * 0.5; // z
+    pos[3] = 0;
+    
+    GLfloat amb[4];
+    amb[0] = 0.0; // r
+    amb[1] = 0.0; // g
+    amb[2] = 0.0; // b
+    amb[3] = 1; // const
+    
+    GLfloat diff[4];
+    diff[0] = 0.0; // r
+    diff[1] = 0.0; // g
+    diff[2] = 0.0; // b
+    diff[3] = 1; // const
+    
+    GLfloat spec[4];
+    spec[0] = 0.0; // r
+    spec[1] = 0.0; // g
+    spec[2] = 0.0; // b
+    spec[3] = 1; // const
+    
+    directional = Light(GL_LIGHT0, pos, amb, diff, spec, false, false);
 }
 
 
@@ -105,6 +138,29 @@ void ofApp::draw(){
             draw_axis();
         glPopMatrix();
     }
+    
+    // Light
+    directional.toggle();
+    glColor3f(1, 1, 1);
+    // light cube representation
+    glPushMatrix();
+        glTranslatef(directional.position[0], directional.position[1], directional.position[2]);
+        glScalef(30, 30, 30);
+        draw_cube();
+    glPopMatrix();
+    // light incidence representation
+    glPushMatrix();
+        glBegin(GL_LINES);
+            glVertex3f(0, 0, 0);
+            glVertex3f(directional.position[0], directional.position[1], directional.position[2]);
+        glEnd();
+    glPopMatrix();
+    
+    // Material
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_SPECULAR);
+    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
     // Floor
 	glColor3f(0, 0, 0);
