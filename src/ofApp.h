@@ -4,9 +4,10 @@
 
 #include "ofMain.h"
 #include "building.h"
-#include "cg_extras.h"
-#include "cg_drawing_extras.h"
-#include "cg_cam_extras_solution.h"
+#include "light.h"
+#include "extras/general.h"
+#include "extras/drawing.h"
+#include "extras/camera.h"
 
 class ofApp : public ofBaseApp{
 
@@ -53,4 +54,14 @@ class ofApp : public ofBaseApp{
 
         // view mode
         bool is_perspective;
+    
+        // Light
+        Light directional;
+        Light point;
+        Light focus;
+        Light any;
+    
+    
+        
+    
 };

@@ -3,7 +3,7 @@
 #define CG_CAM_EXTRAS
 
 #include "ofMain.h"
-#include "cg_extras.h"
+#include "general.h"
 
 //calcula o frustum com base em theta, alpha e beta
 inline void perspective(GLfloat theta, GLfloat alpha, GLfloat beta, bool invertX = false, bool invertY = false) {

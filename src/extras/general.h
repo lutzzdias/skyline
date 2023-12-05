@@ -10,8 +10,7 @@ André Perrotta & Evgheni Polisciuc
 Coimbra, 09/2023
 */
 
-#ifndef CG_EXTRAS_H
-#define CG_EXTRAS_H
+#pragma once
 
 #include "ofMain.h"
 
@@ -94,8 +93,3 @@ inline ofVec3f cross(ofVec3f A, ofVec3f B) {
 
 	return aux;
 }
-
-
-
-
-#endif

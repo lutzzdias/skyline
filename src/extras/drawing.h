@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "cg_extras.h"
+#include "extras/general.h"
 
 //desenha axis 3D
 inline void draw_axis() {

@@ -7,8 +7,8 @@
 
 #pragma once
 #include "ofMain.h"
-#include "cg_extras.h"
-#include "cg_drawing_extras.h"
+#include "extras/general.h"
+#include "extras/drawing.h"
 
 class Building {
 public:

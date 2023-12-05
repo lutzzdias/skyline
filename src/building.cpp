@@ -5,7 +5,6 @@
 //  Created by Thiago Lütz Dias on 07/11/23.
 //
 
-#include <stdio.h>
 #include "building.h"
 
 Building::Building(ofVec2f p, ofVec3f s) {
