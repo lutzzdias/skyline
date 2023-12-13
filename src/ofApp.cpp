@@ -3,13 +3,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	glEnable(GL_DEPTH_TEST);
-    // Light
-    glEnable(GL_LIGHTING);
-    glEnable(GL_NORMALIZE);
-    // Material
-    glEnable(GL_COLOR_MATERIAL);
-    
     is_perspective = true;
     show_axis = true;
     
@@ -43,31 +36,7 @@ void ofApp::setup(){
     custom = CustomBuilding(custom_position, custom_size);
     
     // Light
-    GLfloat pos[4];
-    pos[0] = 0; // x
-    pos[1] = gh() * 0.5; // y
-    pos[2] = gh() * 0.5; // z
-    pos[3] = 0;
-    
-    GLfloat amb[4];
-    amb[0] = 0.0; // r
-    amb[1] = 0.0; // g
-    amb[2] = 0.0; // b
-    amb[3] = 1; // const
-    
-    GLfloat diff[4];
-    diff[0] = 0.0; // r
-    diff[1] = 0.0; // g
-    diff[2] = 0.0; // b
-    diff[3] = 1; // const
-    
-    GLfloat spec[4];
-    spec[0] = 0.0; // r
-    spec[1] = 0.0; // g
-    spec[2] = 0.0; // b
-    spec[3] = 1; // const
-    
-    directional = Light(GL_LIGHT0, pos, amb, diff, spec, false, false);
+    is_directional_on = false;
 }
 
 
@@ -93,6 +62,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    // enables
+    // Depth
+    glEnable(GL_DEPTH_TEST);
+    
+    
 	// Viewport
 	glViewport(0, 0, gw(), gh());
     
@@ -131,6 +105,35 @@ void ofApp::draw(){
         break;
 	}
     
+    // Light
+    glEnable(GL_LIGHTING);
+    glEnable(GL_NORMALIZE);
+    // Material
+    glEnable(GL_COLOR_MATERIAL);
+    // Localviewer
+    glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, is_local_viewer_on);
+    
+    // Light
+    // directional
+    ofVec3f directional_position = ofVec4f(0, gh()*0.5, gh() * 0.5, 0) - ofVec4f(0, 0, 0, 0);
+    directional = DirectionalLight(GL_LIGHT0, directional_position, false);
+    
+    // point
+    ofVec3f point_position = ofVec4f(0, gh()*0.5, gh() * 0.5, 1);
+    point = PointLight(GL_LIGHT1, point_position, false);
+    
+    if (is_directional_on == true) {
+        glEnable(directional.light);
+    } else {
+        glDisable(directional.light);
+    }
+    
+    if (is_point_on == true) {
+        glEnable(point.light);
+    } else {
+        glDisable(point.light);
+    }
+    
     // Axis
     if (show_axis == true) {
         glPushMatrix();
@@ -139,8 +142,6 @@ void ofApp::draw(){
         glPopMatrix();
     }
     
-    // Light
-    directional.toggle();
     glColor3f(1, 1, 1);
     // light cube representation
     glPushMatrix();
@@ -218,6 +219,9 @@ void ofApp::keyPressed(int key){
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_FRONT_AND_BACK);
 		break;
+    case '9':
+        is_local_viewer_on = !is_local_viewer_on;
+        break;
 	case 'g':
 		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		break;
@@ -227,6 +231,12 @@ void ofApp::keyPressed(int key){
 	case 'a':
         show_axis = !show_axis;
 		break;
+    case 'd':
+        is_directional_on = !is_directional_on;
+        break;
+    case 'p':
+        is_point_on = !is_point_on;
+        break;
 	case 'v':
 		view++;
 		if (view > 5) {

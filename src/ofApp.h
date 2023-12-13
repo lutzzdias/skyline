@@ -61,6 +61,10 @@ class ofApp : public ofBaseApp{
         Light focus;
         Light any;
     
+        // is On
+        bool is_local_viewer_on;
+        bool is_directional_on;
+        bool is_point_on;
     
         
     

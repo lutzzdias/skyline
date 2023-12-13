@@ -16,11 +16,20 @@ public:
     GLfloat diffuse[4];
     GLfloat specular[4];
     
-    bool is_on;
     bool is_moving;
     
     Light();
-    Light(GLenum l, GLfloat p[4], GLfloat a[4], GLfloat d[4], GLfloat s[4], bool on, bool moving);
-    void setup();
-    void toggle();
+    Light(GLenum l, ofVec4f p, bool moving);
+};
+
+class DirectionalLight: public Light {
+public:
+    DirectionalLight();
+    DirectionalLight(GLenum l, ofVec4f p, bool moving);
+};
+
+class PointLight: public Light {
+public:
+    PointLight();
+    PointLight(GLenum l, ofVec4f p, bool moving);
 };

@@ -40,6 +40,7 @@ inline void draw_mesh(GLint m, GLint n) {
 
 inline void draw_cube() {
 	GLfloat p = 0.5;
+    glNormal3f(0, 0, 1);
 	glBegin(GL_QUADS);
 
 	// front
@@ -128,6 +129,7 @@ inline void draw_cube_mesh(GLint m, GLint n) {
 // Draws a cilinder, top and bottom are made up of triangles and walls are rectangles
 inline void draw_cilinder(GLint n) {
     // Bottom
+    glNormal3f(0, 0, 1);
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, 0);
     for(int i = n; i >= 0; i--) {
@@ -140,6 +142,7 @@ inline void draw_cilinder(GLint n) {
     glEnd();
     
     // Top
+    glNormal3f(0, 0, 1);
     glBegin(GL_TRIANGLE_FAN);
     glVertex3f(0, 0, 1);
     for(int i = 0; i <= n; i++) {
@@ -152,6 +155,7 @@ inline void draw_cilinder(GLint n) {
     glEnd();
     
     // Walls
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUAD_STRIP);
     for(int i = n; i >= 0; i--) {
         GLfloat angle = (2.0f * M_PI) * (GLfloat(i) / GLfloat(n));
@@ -165,7 +169,9 @@ inline void draw_cilinder(GLint n) {
 }
 
 inline void draw_custom_building() {
+    
     // top
+    glNormal3f(0, 0, 1);
     glBegin(GL_POLYGON);
     glVertex3f(0, 0, 0.5);
     glVertex3f(0, -0.5, 0.5);
@@ -176,6 +182,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // bottom
+    glNormal3f(0, 0, 1);
     glBegin(GL_POLYGON);
     glVertex3f(0, 0, -0.5);
     glVertex3f(-0.5, 0, -0.5);
@@ -186,6 +193,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // front-most
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(0, -0.5, -0.5);
     glVertex3f(0.5, -0.5, -0.5);
@@ -194,6 +202,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // right
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(0.5, -0.5, -0.5);
     glVertex3f(0.5, 0.5, -0.5);
@@ -202,6 +211,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // back
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(0.5, 0.5, -0.5);
     glVertex3f(-0.5, 0.5, -0.5);
@@ -210,6 +220,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // left-back
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(-0.5, 0.5, -0.5);
     glVertex3f(-0.5, 0, -0.5);
@@ -218,6 +229,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // front-second
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(-0.5, 0, -0.5);
     glVertex3f(0, 0, -0.5);
@@ -226,6 +238,7 @@ inline void draw_custom_building() {
     glEnd();
     
     // left-front
+    glNormal3f(0, 0, 1);
     glBegin(GL_QUADS);
     glVertex3f(0, 0, -0.5);
     glVertex3f(0, -0.5, -0.5);

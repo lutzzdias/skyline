@@ -9,43 +9,57 @@
 
 Light::Light() {};
 
-Light::Light(GLenum l, GLfloat p[4], GLfloat a[4], GLfloat d[4], GLfloat s[4], bool on, bool moving) {
+Light::Light(GLenum l, ofVec4f p, bool moving) {
     light = l;
+    
     position[0] = p[0]; // x
     position[1] = p[1]; // y
     position[2] = p[2]; // z
     position[3] = p[3]; // direction
     
-    ambient[0] = a[0]; // r
-    ambient[1] = a[1]; // g
-    ambient[2] = a[2]; // b
-    ambient[3] = a[3]; // const
-    
-    diffuse[0] = d[0]; // r
-    diffuse[1] = d[1]; // g
-    diffuse[2] = d[2]; // b
-    diffuse[3] = d[3]; // const
-    
-    specular[0] = s[0]; // r
-    specular[1] = s[1]; // g
-    specular[2] = s[2]; // b
-    specular[3] = s[3]; // const
-    
-    is_on = on;
     is_moving = moving;
 
     glLightfv(l, GL_POSITION, position);
+}
+
+DirectionalLight::DirectionalLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
+    ambient[0] = 0.0; // R
+    ambient[1] = 0.0; // G
+    ambient[2] = 0.0; // B
+    ambient[3] = 1.0; // const
+    
+    diffuse[0] = 1.0; // R
+    diffuse[1] = 1.0; // G
+    diffuse[2] = 1.0; // B
+    diffuse[3] = 1.0; // const
+    
+    specular[0] = 1.0; // R
+    specular[1] = 1.0; // G
+    specular[2] = 1.0; // B
+    specular[3] = 1.0; // const
+    
     glLightfv(l, GL_AMBIENT, ambient);
     glLightfv(l, GL_DIFFUSE, diffuse);
     glLightfv(l, GL_SPECULAR, specular);
 }
 
-void Light::toggle() {
-    if (is_on) {
-        glDisable(light);
-    } else {
-        glEnable(light);
-    }
+PointLight::PointLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
+    ambient[0] = 0.0; // R
+    ambient[1] = 0.0; // G
+    ambient[2] = 0.0; // B
+    ambient[3] = 1.0; // const
     
-    is_on = !is_on;
+    diffuse[0] = 1.0; // R
+    diffuse[1] = 1.0; // G
+    diffuse[2] = 1.0; // B
+    diffuse[3] = 1.0; // const
+    
+    specular[0] = 1.0; // R
+    specular[1] = 1.0; // G
+    specular[2] = 1.0; // B
+    specular[3] = 1.0; // const
+    
+    glLightfv(l, GL_AMBIENT, ambient);
+    glLightfv(l, GL_DIFFUSE, diffuse);
+    glLightfv(l, GL_SPECULAR, specular);
 }
