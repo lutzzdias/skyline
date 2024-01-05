@@ -62,4 +62,8 @@ PointLight::PointLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
     glLightfv(l, GL_AMBIENT, ambient);
     glLightfv(l, GL_DIFFUSE, diffuse);
     glLightfv(l, GL_SPECULAR, specular);
+    
+    glLightf(l, GL_CONSTANT_ATTENUATION, 1);
+    glLightf(l, GL_LINEAR_ATTENUATION, 0.0001);
+    glLightf(l, GL_QUADRATIC_ATTENUATION, 0.00001);
 }

@@ -37,6 +37,7 @@
 /* Begin PBXFileReference section */
 		191CD6FA2847E21E0085CBB6 /* of.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = of.entitlements; sourceTree = "<group>"; };
 		191EF70929D778A400F35F26 /* openFrameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openFrameworks; path = /Users/lutz/Applications/of_v0.12.0_osx_release/libs/openFrameworks; sourceTree = SOURCE_ROOT; };
+		494C01B02B47EF1E007D8C86 /* materials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = materials.h; sourceTree = "<group>"; };
 		49B5C2122B1F9DC3005117D1 /* building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = building.h; sourceTree = "<group>"; };
 		49B5C2132B1F9DC3005117D1 /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
 		49B5C2142B1F9DC3005117D1 /* general.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = general.h; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 				49B5C2142B1F9DC3005117D1 /* general.h */,
 				49B5C2172B1F9DC3005117D1 /* drawing.h */,
 				49B5C2192B1F9DC3005117D1 /* camera.h */,
+				494C01B02B47EF1E007D8C86 /* materials.h */,
 			);
 			path = extras;
 			sourceTree = "<group>";
