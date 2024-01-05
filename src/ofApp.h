@@ -8,6 +8,7 @@
 #include "extras/general.h"
 #include "extras/drawing.h"
 #include "extras/camera.h"
+#include "extras/materials.h"
 
 class ofApp : public ofBaseApp{
 

@@ -119,7 +119,7 @@ void ofApp::draw(){
     directional = DirectionalLight(GL_LIGHT0, directional_position, false);
     
     // point
-    ofVec3f point_position = ofVec4f(0, gh()*0.5, gh() * 0.5, 1);
+    ofVec3f point_position = ofVec4f(100, gh()*0.5, gh() * 0.5, 1);
     point = PointLight(GL_LIGHT1, point_position, false);
     
     if (is_directional_on == true) {
@@ -142,29 +142,28 @@ void ofApp::draw(){
         glPopMatrix();
     }
     
-    glColor3f(1, 1, 1);
-    // light cube representation
-    glPushMatrix();
-        glTranslatef(directional.position[0], directional.position[1], directional.position[2]);
-        glScalef(30, 30, 30);
-        draw_cube();
-    glPopMatrix();
-    // light incidence representation
-    glPushMatrix();
-        glBegin(GL_LINES);
-            glVertex3f(0, 0, 0);
-            glVertex3f(directional.position[0], directional.position[1], directional.position[2]);
-        glEnd();
-    glPopMatrix();
+//    glColor3f(1, 1, 1);
+//    // light cube representation
+//    glPushMatrix();
+//        glTranslatef(directional.position[0], directional.position[1], directional.position[2]);
+//        glScalef(30, 30, 30);
+//        draw_cube();
+//    glPopMatrix();
+//    // light incidence representation
+//    glPushMatrix();
+//        glBegin(GL_LINES);
+//            glVertex3f(0, 0, 0);
+//            glVertex3f(directional.position[0], directional.position[1], directional.position[2]);
+//        glEnd();
+//    glPopMatrix();
     
     // Material
     glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT);
     glColorMaterial(GL_FRONT_AND_BACK, GL_DIFFUSE);
     glColorMaterial(GL_FRONT_AND_BACK, GL_SPECULAR);
-    glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 
     // Floor
-	glColor3f(0, 0, 0);
+    get_material(ASPHALT);
 	glPushMatrix();
         glTranslatef(0, 0, 0);
         glScalef(gw(), gh(), 0);

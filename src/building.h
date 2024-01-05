@@ -9,6 +9,7 @@
 #include "ofMain.h"
 #include "extras/general.h"
 #include "extras/drawing.h"
+#include "extras/materials.h"
 
 class Building {
 public:

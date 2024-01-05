@@ -27,21 +27,21 @@ TowerBuilding::TowerBuilding(ofVec2f p, ofVec3f s) : Building(p, s) {}
 void CustomBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    glColor3f(140.0f / 255.0f, 140.0f / 255.0f, 140.0f / 255.0f);  // Dim gray
+    get_material(WOOD);
     draw_custom_building();
 }
 
 void SimpleCuboidBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    glColor3f(121.0f / 255.0f, 121.0f / 255.0f, 121.0f / 255.0f);  // medium light gray
+    get_material(WOOD);
     draw_cube();
 }
 
 void MeshBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    glColor3f(70.0f / 255.0f, 70.0f / 255.0f, 70.0f / 255.0f); // Dark gray
+    get_material(CONCRETE);
     draw_cube_mesh(10, 10);
 }
 
@@ -50,7 +50,7 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x + (size.x * 0.25) + (size.x * 0.1), position.y, size.z * 0.5);
     glScalef(size.x * 0.5, size.y, size.z);
-    glColor3f(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f); // Medium gray
+    get_material(CONCRETE);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -58,7 +58,7 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x - (size.x * 0.25) - (size.x * 0.1), position.y, size.z * 0.5);
     glScalef(size.x * 0.5, size.y, size.z);
-    glColor3f(128.0f / 255.0f, 128.0f / 255.0f, 128.0f / 255.0f); // Medium gray
+    get_material(CONCRETE);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -70,7 +70,7 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(0, (-middle_size.y * 0.5) - (elevator_size.y * 0.5), elevator_position);
     glScalef(elevator_size.x, -elevator_size.y, elevator_size.z);
-    glColor3f(192.0f / 255.0f, 192.0f / 255.0f, 192.0f / 255.0f); // Silver
+    get_material(METAL);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -78,12 +78,12 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(0, (middle_size.y * 0.5) + (elevator_size.y * 0.5), elevator_position);
     glScalef(elevator_size.x, elevator_size.y, elevator_size.z);
-    glColor3f(192.0f / 255.0f, 192.0f / 255.0f, 192.0f / 255.0f); // Silver
+    get_material(METAL);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
     glScalef(middle_size.x, middle_size.y, middle_size.z);
-    glColor3f(34.0f / 255.0f, 34.0f / 255.0f, 34.0f / 255.0f); // Dark gray
+    get_material(CONCRETE);
     draw_cube_mesh(10, 10);
     glPopMatrix();
 }
@@ -93,7 +93,7 @@ void TowerBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    glColor3f(220.0f / 255.0f, 220.0f / 255.0f, 220.0f / 255.0f); // Grainsboro
+    get_material(BRICK);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -102,7 +102,7 @@ void TowerBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.8);
     glScalef(lookout_radius, lookout_radius, lookout_height);
     glRotatef(lookout_rotation_angle, 0, 0, 1);
-    glColor3f(79.0f / 255.0f, 79.0f / 255.0f, 79.0f / 255.0f); // Medium dark gray
+    get_material(CONCRETE);
     draw_cilinder(25);
     glPopMatrix();
 }
