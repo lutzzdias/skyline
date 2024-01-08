@@ -41,7 +41,7 @@ inline void get_material(CustomMaterial m) {
                 1.0  // Const
             };
             
-            GLint shininess_asphalt = 0.3 * 128;
+            GLint shininess_asphalt = 0.1 * 128;
             
             glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_asphalt);
             glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_asphalt);

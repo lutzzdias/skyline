@@ -66,7 +66,12 @@ class ofApp : public ofBaseApp{
         // is On
         bool is_directional_on;
         bool is_point_on;
+        bool is_focus_on;
+        bool is_any_on;
     
+        // Any movement variable
+        GLfloat light_radius;
+        GLfloat light_angle;
         
     
 };

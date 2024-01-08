@@ -33,3 +33,11 @@ public:
     PointLight();
     PointLight(GLenum l, ofVec4f p, bool moving);
 };
+
+class FocusLight: public Light {
+public:
+    FocusLight();
+    FocusLight(GLenum l, ofVec4f p, ofVec4f d, bool moving);
+    
+    GLfloat direction[4];
+};

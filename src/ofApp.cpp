@@ -7,7 +7,6 @@ void ofApp::setup(){
     glEnable(GL_DEPTH_TEST);
     
     is_perspective = true;
-    show_axis = true;
     
     // Camera
     camera_radius = gh() * 1.25;
@@ -41,6 +40,11 @@ void ofApp::setup(){
     // Light
     is_directional_on = false;
     is_point_on = false;
+    is_focus_on = false;
+    is_any_on - false;
+    
+    light_angle = 0;
+    light_radius = gh() * 0.75;
 }
 
 
@@ -48,6 +52,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     camera_angle -= 0.005;
+    light_angle += 0.005;
     elevator.update();
     tower.update();
     
@@ -115,12 +120,23 @@ void ofApp::draw(){
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient_light);
     
     // directional
-    ofVec4f directional_position = ofVec4f(0, gh() * 0.5, gh() * 0.5, 0) - ofVec4f(0, 0, 0, 0);
+    ofVec4f directional_position = ofVec4f(0, -gh() * 0.5, gh() * 0.5, 0) - ofVec4f(0, 0, 0, 0);
     directional = DirectionalLight(GL_LIGHT0, directional_position, false);
     
     // point
     ofVec4f point_position = ofVec4f(0, gh() * 0.5, 100, 1);
     point = PointLight(GL_LIGHT1, point_position, false);
+    
+    // focus
+    ofVec4f focus_position = ofVec4f(gw() * 0.45, 0, gh() * 0.25, 1);
+    ofVec4f focus_direction = ofVec4f(-gw() * 0.45, 0, -gh() * 0.25, 0);
+    focus = FocusLight(GL_LIGHT2, focus_position, focus_direction, false);
+    
+    // any
+    ofVec4f any_position = ofVec4f(light_radius * cos(light_angle), -light_radius * sin(light_angle), gh() * 0.5, 1);
+    ofVec4f any_direction = ofVec4f(-(light_radius * cos(light_angle)), -(-light_radius * sin(light_angle)), -gh() * 0.5, 0);
+    any = FocusLight(GL_LIGHT3, any_position, any_direction, true);
+    
     
     if (is_directional_on == true) {
         glEnable(directional.light);
@@ -132,6 +148,18 @@ void ofApp::draw(){
         glEnable(point.light);
     } else {
         glDisable(point.light);
+    }
+    
+    if (is_focus_on) {
+        glEnable(focus.light);
+    } else {
+        glDisable(focus.light);
+    }
+    
+    if (is_any_on == true) {
+        glEnable(any.light);
+    } else {
+        glDisable(any.light);
     }
     
     // Axis
@@ -215,6 +243,38 @@ void ofApp::draw(){
         glPopMatrix();
     }
     
+    if(is_focus_on) {
+        glColor3f(1, 1, 1);
+        glPushMatrix();
+        glTranslatef(focus.position[0], focus.position[1], focus.position[2]);
+        glScalef(30, 30, 30);
+        draw_cube();
+        glPopMatrix();
+        // light incidence representation
+        glPushMatrix();
+        glBegin(GL_LINES);
+        glVertex3f(0, 0, 0);
+        glVertex3f(focus.position[0], focus.position[1], focus.position[2]);
+        glEnd();
+        glPopMatrix();
+    }
+    
+    if(is_any_on) {
+        glColor3f(1, 1, 1);
+        glPushMatrix();
+        glTranslatef(any.position[0], any.position[1], any.position[2]);
+        glScalef(30, 30, 30);
+        draw_cube();
+        glPopMatrix();
+        // light incidence representation
+        glPushMatrix();
+        glBegin(GL_LINES);
+        glVertex3f(0, 0, 0);
+        glVertex3f(any.position[0], any.position[1], any.position[2]);
+        glEnd();
+        glPopMatrix();
+    }
+    
 }
 
 //--------------------------------------------------------------
@@ -247,11 +307,17 @@ void ofApp::keyPressed(int key){
 	case 'a':
         show_axis = !show_axis;
 		break;
-    case 'd':
+    case 'q':
         is_directional_on = !is_directional_on;
         break;
-    case 'p':
+    case 'w':
         is_point_on = !is_point_on;
+        break;
+    case 'e':
+        is_focus_on = !is_focus_on;
+        break;
+    case 'r':
+        is_any_on = !is_any_on;
         break;
 	case 'v':
 		view++;

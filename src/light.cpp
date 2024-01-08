@@ -71,3 +71,46 @@ PointLight::PointLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
     glLightf(l, GL_LINEAR_ATTENUATION, linear_atenuation);
     glLightf(l, GL_QUADRATIC_ATTENUATION, quadratic_atenuation);
 }
+
+FocusLight::FocusLight(GLenum l, ofVec4f p, ofVec4f d, bool moving) : Light(l, p, moving) {
+    
+    direction[0] = d[0]; // x
+    direction[1] = d[1]; // y
+    direction[2] = d[2]; // z
+    direction[3] = d[3]; // const (0)
+    
+    ambient[0] = 1.0; // R
+    ambient[1] = 1.0; // G
+    ambient[2] = 1.0; // B
+    ambient[3] = 1.0; // const
+    
+    diffuse[0] = 1.0; // R
+    diffuse[1] = 1.0; // G
+    diffuse[2] = 1.0; // B
+    diffuse[3] = 1.0; // const
+    
+    specular[0] = 1.0; // R
+    specular[1] = 1.0; // G
+    specular[2] = 1.0; // B
+    specular[3] = 1.0; // const
+    
+    float constant_atenuation = 1;
+    float linear_atenuation = 0.0001;
+    float quadratic_atenuation = 0.000001;
+    
+    float exponent = 128;
+    float cutoff = 25;
+    
+    glLightfv(l, GL_SPOT_DIRECTION, direction);
+    
+    glLightfv(l, GL_AMBIENT, ambient);
+    glLightfv(l, GL_DIFFUSE, diffuse);
+    glLightfv(l, GL_SPECULAR, specular);
+    
+    glLightf(l, GL_CONSTANT_ATTENUATION, constant_atenuation);
+    glLightf(l, GL_LINEAR_ATTENUATION, linear_atenuation);
+    glLightf(l, GL_QUADRATIC_ATTENUATION, quadratic_atenuation);
+    
+    glLightf(l, GL_SPOT_EXPONENT, exponent);
+    glLightf(l, GL_SPOT_CUTOFF, cutoff);
+}
