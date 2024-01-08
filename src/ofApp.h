@@ -57,11 +57,11 @@ class ofApp : public ofBaseApp{
         bool is_perspective;
     
         // Light
+        GLfloat ambient_light[4];
         Light directional;
         Light point;
         Light focus;
         Light any;
-        GLfloat mview[4][4];
     
         // is On
         bool is_directional_on;

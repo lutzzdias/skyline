@@ -41,7 +41,7 @@ void SimpleCuboidBuilding::draw() {
 void MeshBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    get_material(CONCRETE);
+    get_material(BRICK);
     draw_cube_mesh(10, 10);
 }
 
@@ -50,7 +50,7 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x + (size.x * 0.25) + (size.x * 0.1), position.y, size.z * 0.5);
     glScalef(size.x * 0.5, size.y, size.z);
-    get_material(CONCRETE);
+    get_material(EMERALD);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -58,7 +58,7 @@ void ElevatorBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x - (size.x * 0.25) - (size.x * 0.1), position.y, size.z * 0.5);
     glScalef(size.x * 0.5, size.y, size.z);
-    get_material(CONCRETE);
+    get_material(EMERALD);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -83,7 +83,7 @@ void ElevatorBuilding::draw() {
     glPopMatrix();
     
     glScalef(middle_size.x, middle_size.y, middle_size.z);
-    get_material(CONCRETE);
+    get_material(EMERALD);
     draw_cube_mesh(10, 10);
     glPopMatrix();
 }
@@ -93,7 +93,7 @@ void TowerBuilding::draw() {
     glPushMatrix();
     glTranslatef(position.x, position.y, size.z * 0.5);
     glScalef(size.x, size.y, size.z);
-    get_material(BRICK);
+    get_material(METAL);
     draw_cube_mesh(10, 10);
     glPopMatrix();
     
@@ -102,7 +102,7 @@ void TowerBuilding::draw() {
     glTranslatef(position.x, position.y, size.z * 0.8);
     glScalef(lookout_radius, lookout_radius, lookout_height);
     glRotatef(lookout_rotation_angle, 0, 0, 1);
-    get_material(CONCRETE);
+    get_material(EMERALD);
     draw_cilinder(25);
     glPopMatrix();
 }

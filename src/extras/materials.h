@@ -12,7 +12,7 @@
 enum CustomMaterial {
     ASPHALT,
     BRICK,
-    CONCRETE,
+    EMERALD,
     METAL,
     WOOD,
 };
@@ -21,27 +21,27 @@ inline void get_material(CustomMaterial m) {
     switch (m) {
         case ASPHALT: {
             GLfloat ambient_asphalt[] = {
-                0.05, // R
+                0.05375, // R
                 0.05, // G
-                0.05, // B
-                1.    // Const
+                0.06625, // B
+                1.0  // Const
             };
             
             GLfloat diffuse_asphalt[] = {
-                0.1, // R
-                0.1, // G
-                0.1, // B
-                1.   // Const
+                0.18275, // R
+                0.17, // G
+                0.22525, // B
+                1.0  // Const
             };
             
             GLfloat specular_asphalt[] = {
-                0.1, // R
-                0.1, // G
-                0.1, // B
-                1.   // Const
+                0.332741, // R
+                0.328634, // G
+                0.346435, // B
+                1.0  // Const
             };
             
-            GLint shininess_asphalt = 0.2 * 128;
+            GLint shininess_asphalt = 0.3 * 128;
             
             glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_asphalt);
             glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_asphalt);
@@ -81,59 +81,60 @@ inline void get_material(CustomMaterial m) {
             break;
         }
         
-        case CONCRETE: {
-            GLfloat ambient_concrete[] = {
-                0.2, // R
-                0.2, // G
-                0.2, // B
+        case EMERALD: {
+            GLfloat ambient_emerald[] = {
+                0.02, // R
+                0.17, // G
+                0.02, // B
                 1.   // Const
             };
             
-            GLfloat diffuse_concrete[] = {
-                0.6, // R
-                0.6, // G
-                0.6, // B
+            GLfloat diffuse_emerald[] = {
+                0.08, // R
+                0.61, // G
+                0.08, // B
                 1.   // Const
             };
             
-            GLfloat specular_concrete[] = {
-                0.2, // R
-                0.2, // G
-                0.2, // B
+            GLfloat specular_emerald[] = {
+                0.63, // R
+                0.73, // G
+                0.63, // B
                 1.   // Const
             };
             
-            GLint shininess_concrete = 0.1 * 128;
+            GLint shininess_emerald = 0.2 * 128;
             
-            glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_concrete);
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_concrete);
-            glMaterialfv(GL_FRONT, GL_SPECULAR, specular_concrete);
-            glMaterialf(GL_FRONT, GL_SHININESS, shininess_concrete);
+            glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_emerald);
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_emerald);
+            glMaterialfv(GL_FRONT, GL_SPECULAR, specular_emerald);
+            glMaterialf(GL_FRONT, GL_SHININESS, shininess_emerald);
+            break;
         }
             
         case METAL: {
             GLfloat ambient_metal[] = {
-                0.3, // R
-                0.3, // G
-                0.3, // B
+                0.19, // R
+                0.19, // G
+                0.19, // B
                 1.   // Const
             };
             
             GLfloat diffuse_metal[] = {
-                0.7, // R
-                0.7, // G
-                0.7, // B
+                0.51, // R
+                0.51, // G
+                0.51, // B
                 1.   // Const
             };
             
             GLfloat specular_metal[] = {
-                0.8, // R
-                0.8, // G
-                0.8, // B
+                0.9, // R
+                0.9, // G
+                0.9, // B
                 1.   // Const
             };
             
-            GLint shininess_metal = 0.4 * 128;
+            GLint shininess_metal = 1 * 128;
             
             glMaterialfv(GL_FRONT, GL_AMBIENT, ambient_metal);
             glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse_metal);

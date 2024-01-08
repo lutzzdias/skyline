@@ -101,20 +101,25 @@ void ofApp::draw(){
     // Light
     glEnable(GL_LIGHTING);
     glEnable(GL_NORMALIZE);
+    glShadeModel(GL_SMOOTH);
     // Localviewer
     glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, true);
     
-    // Material
-    glEnable(GL_COLOR_MATERIAL);
-    
-    
     // Light
+    
+    // deactivate ambient
+    ambient_light[0] = 0.;
+    ambient_light[1] = 0.;
+    ambient_light[2] = 0.;
+    ambient_light[3] = 1;
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient_light);
+    
     // directional
-    ofVec3f directional_position = ofVec4f(0, gh()*0.5, gh() * 0.5, 0) - ofVec4f(0, 0, 0, 0);
+    ofVec4f directional_position = ofVec4f(0, gh() * 0.5, gh() * 0.5, 0) - ofVec4f(0, 0, 0, 0);
     directional = DirectionalLight(GL_LIGHT0, directional_position, false);
     
     // point
-    ofVec3f point_position = ofVec4f(0, -gh()*0.5, gh() * 0.5, 1);
+    ofVec4f point_position = ofVec4f(0, gh() * 0.5, 100, 1);
     point = PointLight(GL_LIGHT1, point_position, false);
     
     if (is_directional_on == true) {
@@ -147,7 +152,7 @@ void ofApp::draw(){
 	glPushMatrix();
         glTranslatef(0, 0, 0);
         glScalef(gw(), gh(), 0);
-        draw_mesh(25, 23);
+        draw_mesh(100, 100);
 	glPopMatrix();
     
     // Cube building

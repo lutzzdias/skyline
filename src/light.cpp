@@ -15,7 +15,7 @@ Light::Light(GLenum l, ofVec4f p, bool moving) {
     position[0] = p[0]; // x
     position[1] = p[1]; // y
     position[2] = p[2]; // z
-    position[3] = p[3]; // direction
+    position[3] = p[3]; // 0 - direction | 1 - position
     
     is_moving = moving;
 
@@ -23,9 +23,9 @@ Light::Light(GLenum l, ofVec4f p, bool moving) {
 }
 
 DirectionalLight::DirectionalLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
-    ambient[0] = 0.0; // R
-    ambient[1] = 0.0; // G
-    ambient[2] = 0.0; // B
+    ambient[0] = 1.0; // R
+    ambient[1] = 1.0; // G
+    ambient[2] = 1.0; // B
     ambient[3] = 1.0; // const
     
     diffuse[0] = 1.0; // R
@@ -44,9 +44,9 @@ DirectionalLight::DirectionalLight(GLenum l, ofVec4f p, bool moving) : Light(l, 
 }
 
 PointLight::PointLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
-    ambient[0] = 0.0; // R
-    ambient[1] = 0.0; // G
-    ambient[2] = 0.0; // B
+    ambient[0] = 1.0; // R
+    ambient[1] = 1.0; // G
+    ambient[2] = 1.0; // B
     ambient[3] = 1.0; // const
     
     diffuse[0] = 1.0; // R
@@ -59,11 +59,15 @@ PointLight::PointLight(GLenum l, ofVec4f p, bool moving) : Light(l, p, moving) {
     specular[2] = 1.0; // B
     specular[3] = 1.0; // const
     
+    float constant_atenuation = 1;
+    float linear_atenuation = 0.0001;
+    float quadratic_atenuation = 0.000001;
+    
     glLightfv(l, GL_AMBIENT, ambient);
     glLightfv(l, GL_DIFFUSE, diffuse);
     glLightfv(l, GL_SPECULAR, specular);
     
-    glLightf(l, GL_CONSTANT_ATTENUATION, 1);
-    glLightf(l, GL_LINEAR_ATTENUATION, 0.0001);
-    glLightf(l, GL_QUADRATIC_ATTENUATION, 0.00001);
+    glLightf(l, GL_CONSTANT_ATTENUATION, constant_atenuation);
+    glLightf(l, GL_LINEAR_ATTENUATION, linear_atenuation);
+    glLightf(l, GL_QUADRATIC_ATTENUATION, quadratic_atenuation);
 }
