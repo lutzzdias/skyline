@@ -24,6 +24,13 @@ inline void perspective(GLfloat theta, GLfloat alpha, GLfloat beta, bool invertX
 	glFrustum(-xmax, xmax, -ymax, ymax, nearClip, farClip);
 }
 
+// create orthogonal config
+inline void orthogonal(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble near, GLdouble far) {
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(left, right, bottom, top, near, far);
+}
+
 
 //implementa o algoritmo de lookAt
 inline void lookat(

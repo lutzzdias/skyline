@@ -61,9 +61,9 @@ class ofApp : public ofBaseApp{
         Light point;
         Light focus;
         Light any;
+        GLfloat mview[4][4];
     
         // is On
-        bool is_local_viewer_on;
         bool is_directional_on;
         bool is_point_on;
     
